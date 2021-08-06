@@ -266,6 +266,7 @@ public class Main {
         ICar.sm();
         fastCar.sm2(); //gas();
         FastCar.sm2();
+        //((ICar)fastCar).sm();//  ))))))))))))
 
         fastCar.point.x = 2;
         fastCar.point.x = 3;
