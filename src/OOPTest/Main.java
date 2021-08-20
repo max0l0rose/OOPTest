@@ -176,8 +176,49 @@ public class Main {
         //return a;
     }
 
+
+    class WrapInt{
+        int value = 1;
+    }
+
+    static void paramsPassingTest(WrapInt i) {
+        i.value++;
+    }
+
+
+    static void paramsPassingTest(Integer[] arr) {
+        arr[0]++;
+    }
+
+
+//    static void paramsPassingTest(int[] arr) {
+//        arr[0]++;
+//    }
+
+
+    synchronized
+    static void paramsPassingTest(int... arr) {
+        arr[0]++;
+    }
+
+
+    void run(String[] args) {
+        //Integer a = 1;
+        WrapInt theInt = new WrapInt() {{ value = 2; }};
+        paramsPassingTest(theInt);
+
+        //Integer[] arr = new Integer[] {1,2,3};
+        int[] arr = new int[] {1,2,3};
+        paramsPassingTest(arr);
+
+    }
+
+
     // =============================================================================================
     public static void main(String[] args) {
+
+        Main main = new Main();
+        main.run(args);
 
         Main m = new Main();
 
@@ -226,7 +267,7 @@ public class Main {
 
         Abstract1 abstract1 = new Abstract1() {
             @Override
-            void abs() {
+            public void abs() { // public !!!! - redefinition of visibility!!!!! works!
             }
         };
 
