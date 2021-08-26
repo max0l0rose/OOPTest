@@ -1,114 +1,28 @@
 package OOPTest;
 
 import OOPTest.Interfaces.*;
-import OOPTest.pack1.*;
+import io.vavr.control.Try;
 
+import java.util.*;
 import java.util.concurrent.Callable;
 
-
-// ====================================================
-class FastCar implements ICar {
-
-    int qqq = 1; // package private. Default.
-
-    static {
-        int a = 1;
-    }
-
-    @Override
-    public void brake() {
-    }
-
-    static void sm2() {
-        //smmm();
-    }
-
-    void qqq() {
-        //smmm();
-    }
-
-}
-
-
-// ====================================================
-class RocketCar extends FastCar {
-    int qqq = 2;
-
-    static void sqqq() {
-        FastCar.sm2();
-    }
-
-    void qqq() {
-        super.qqq();
-        qqq = 3;
-    }
-}
-
-
-// ====================================================
-class AdditionalDevice1 implements IEngine.IAdditionalDevice {//, Comparable
-    private static int ddd = 1;
-    int notStatic = 2;
-
-    class NestedClass1 {
-//        static int ggg = 1; // wow! Error! Inner classes cannot have static decl. !!!!!!!!!!!!!!!!!!!!!!!!!!
-
-        int NestedClass1_ggg = 1;
-
-//        static {              // wow! Error! Inner classes cannot have static decl.
-//            int ddd = 2;
-//        }
-
-        int GetField() {
-            return ddd;
-        }
-    }
-
-
-    class NestedClass2 {
-        NestedClass2() {
-            notStatic = 3;
-        }
-    }
-
-
-    AdditionalDevice1() {
-        NestedClass1 nc1 = new NestedClass1();
-    }
-
-
-    @Override
-    public String Name() {
-        return null;
-    }
-}
-
-
-
-// ====================================================
-class class131 extends class13 { // static -- error here!
-    protected int field1 = 1;
-
-    class131() {
-        field1 = 131;
-        class13.field1 = 3333;
-    }
-    class131(int a) {
-        super(a);
-        //field1 = 6; // protected test. from another pack.
-    }
-}
-
+import static org.junit.Assert.assertTrue;
 
 
 // ====================================================
 public class Main {
+
+    //Collection
+    //LinkedList
+    //List
+    //ArrayList
 
     int aa = 1;
     private static int eee = 1;
 
 
     public void qqq(Integer i, String[] sarr, int[] iarr) {
+
         i = 2;
         sarr[0] = "qqq";
         //sarr[1] = "www";
@@ -214,8 +128,29 @@ public class Main {
     }
 
 
+    static void vavr() {
+
+        Try<Integer> result = Try.of(
+                () -> 1 / 0
+        );
+
+        //assertTrue(result.isFailure());
+
+        int errorSentinel = result.getOrElse(-666);
+
+
+        List<String> wordList = Arrays.asList("abracadabra");
+        List<String> list = Collections.unmodifiableList(wordList);
+        list.add("boom");
+    }
+
+
+    // =============================================================================================
+    // =============================================================================================
     // =============================================================================================
     public static void main(String[] args) {
+
+        vavr();
 
         Main main = new Main();
         main.run(args);

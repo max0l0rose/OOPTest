@@ -1,4 +1,4 @@
-package OOPTest.pack1;
+package OOPTest;
 
 // test pack access
 
