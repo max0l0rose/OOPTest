@@ -5,6 +5,8 @@ import io.vavr.control.Try;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Queue;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
 
 import static org.junit.Assert.assertTrue;
@@ -96,8 +98,34 @@ public class Main {
         int value = 1;
     }
 
-    static void paramsPassingTest(WrapInt i) {
-        i.value++;
+    static void paramsPassingTest(WrapInt a, WrapInt b) {
+        //i.value++;
+
+//        WrapInt t = a;
+//        a = b;
+//        b = t;
+
+        int t = a.value;
+        a.value = b.value;
+        b.value = t;
+
+    }
+
+
+    static void paramsPassingTest(Integer a, Integer b) {
+        //i.value++;
+        Integer t = a;
+        a = b;
+        b = t;
+
+        try {
+            return;
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            int aa = 1;
+        }
+
     }
 
 
@@ -119,8 +147,14 @@ public class Main {
 
     void run(String[] args) {
         //Integer a = 1;
+
         WrapInt theInt = new WrapInt() {{ value = 2; }};
-        paramsPassingTest(theInt);
+        WrapInt theInt2 = new WrapInt() {{ value = 3; }};
+        paramsPassingTest(theInt, theInt2);
+
+        Integer theIntA = 2;
+        Integer theIntB = 3;
+        paramsPassingTest(theIntA, theIntB);
 
         //Integer[] arr = new Integer[] {1,2,3};
         int[] arr = new int[] {1,2,3};
@@ -155,19 +189,17 @@ public class Main {
 
         //vavr();
 
-        HashMap;
-        HashSet;
-
+//        HashMap;
+//        HashSet;
+//        BlockingQueue;
 
         Main main = new Main();
         main.run(args);
 
-        Main m = new Main();
-
         String[] s = { "aaa" };
         Integer i = 1;
         int[] iarr = { 1 };
-        m.qqq(i, s, iarr);
+        main.qqq(i, s, iarr);
 
         int res = extest();
 
