@@ -3,7 +3,8 @@ package OOPTest;
 import OOPTest.Interfaces.*;
 import io.vavr.control.Try;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.concurrent.Callable;
 
 import static org.junit.Assert.assertTrue;
@@ -136,12 +137,14 @@ public class Main {
 
         //assertTrue(result.isFailure());
 
-        int errorSentinel = result.getOrElse(-666);
+        int errorSentinel = result.recover(a -> 1).getOrElse(-666);
 
 
-        List<String> wordList = Arrays.asList("abracadabra");
-        List<String> list = Collections.unmodifiableList(wordList);
-        list.add("boom");
+        io.vavr.collection.List list = io.vavr.collection.List.of(1, "2", 0.7);
+
+//        List<String> wordList = Arrays.asList("abracadabra");
+//        List<String> list = Collections.unmodifiableList(wordList);
+//        list.add("boom");
     }
 
 
@@ -150,7 +153,11 @@ public class Main {
     // =============================================================================================
     public static void main(String[] args) {
 
-        vavr();
+        //vavr();
+
+        HashMap;
+        HashSet;
+
 
         Main main = new Main();
         main.run(args);
