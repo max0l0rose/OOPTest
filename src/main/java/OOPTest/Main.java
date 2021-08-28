@@ -3,6 +3,8 @@ package OOPTest;
 import OOPTest.Interfaces.*;
 import io.vavr.control.Try;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Queue;
@@ -74,23 +76,74 @@ public class Main {
         try {
             int b = 1 / a;
         }
-        catch (ArithmeticException e) {
-            a = 10;
-            return 10; // 10 will be returned
-        }
-        catch (RuntimeException e) {
-            a = 11;
-        }
-        catch (Exception e) {
-            a = 12;
-        }
-        finally {
-            a = 100;
-            return 100;
+//        catch (ArithmeticException e)
+//        {
+//            return 10; // 10 will be returned
+//        }
+//        catch (RuntimeException e)
+//        {
+//            a = 11;
+//        }
+//        catch (Exception e)
+//        {
+//            a = 12;
+//        }
+        finally
+        {
+            //try {
+                throw new NullPointerException("qqq");
+            //}
+            //catch(Exception ex) {
+            //    return 100;
+            //}
+
             //return; // !!!!!!!! Ловить не надо! )))))))))))) Все работает
         }
 
         //return a;
+    }
+
+
+
+//
+//    public class Parent {
+//        public void f() throws IOException, InterruptedException
+//        {
+//        }
+//    }
+//
+//    class Child extends Parent {
+//        @Override
+//        public void f() throws Exception // error
+//        {
+//        }
+//    }
+
+
+
+
+//    public static void f1() throws Exception
+//    {
+//        try {
+//            Throwable t = new Exception(); // и лететь будет Exception
+//            throw t; // но тут ошибка компиляции
+//        } catch (Exception e) {
+//            System.out.println("Перехвачено!");
+//        }
+//    }
+
+
+    public static String exTest2() {
+        try {
+            int c = 1 / 0;
+            return "SomeString";
+        }
+        catch(Exception ex) {
+            return "Catch message";
+        }
+        finally {
+            return "Finally message";
+        }
     }
 
 
@@ -146,6 +199,9 @@ public class Main {
 
 
     void run(String[] args) {
+
+        String s = exTest2();
+
         //Integer a = 1;
 
         WrapInt theInt = new WrapInt() {{ value = 2; }};
@@ -193,6 +249,8 @@ public class Main {
 //        HashSet;
 //        BlockingQueue;
 
+        int res = extest();
+
         Main main = new Main();
         main.run(args);
 
@@ -201,7 +259,6 @@ public class Main {
         int[] iarr = { 1 };
         main.qqq(i, s, iarr);
 
-        int res = extest();
 
 //        HashMap<Integer, String> map = new HashMap<>();
 //        map.put(1, "qqq");
