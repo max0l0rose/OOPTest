@@ -3,12 +3,6 @@ package OOPTest;
 import OOPTest.Interfaces.*;
 import io.vavr.control.Try;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Queue;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
 
 import static org.junit.Assert.assertTrue;
@@ -71,23 +65,32 @@ public class Main {
     }
 
 
-    static int extest() {
-        int a = 0;
+    static int exTest() {
+        float c = 0;
         try {
-            int b = 1 / a;
+            c = 0 / .0F;
+            c = 0 / 0;
+            c++;
+            c++;
+            c++;
+            c++;
         }
-//        catch (ArithmeticException e)
-//        {
-//            return 10; // 10 will be returned
-//        }
-//        catch (RuntimeException e)
-//        {
-//            a = 11;
-//        }
-//        catch (Exception e)
-//        {
-//            a = 12;
-//        }
+        catch (ArithmeticException e)
+        {
+            return 10; // 10 will be returned
+        }
+        catch (RuntimeException e)
+        {
+            c = 11;
+        }
+        catch (Exception e)
+        {
+            c = 12;
+        }
+        catch (Throwable e)
+        {
+            c = 13;
+        }
         finally
         {
             //try {
@@ -187,6 +190,22 @@ public class Main {
     }
 
 
+    static void paramsPassingTest(String a, String b) {
+        //i.value++;
+        String t = a;
+        a = b;
+        b = t;
+    }
+
+
+//    static void paramsPassingTest(byte[] a, byte[] b) {
+//        //i.value++;
+//        byte[] t = a;
+//        a = b;
+//        b = t;
+//    }
+
+
 //    static void paramsPassingTest(int[] arr) {
 //        arr[0]++;
 //    }
@@ -243,13 +262,18 @@ public class Main {
     // =============================================================================================
     public static void main(String[] args) {
 
-        //vavr();
+        String a = new String("2"); // different
+        String b = new String("2");
 
-//        HashMap;
-//        HashSet;
-//        BlockingQueue;
+//        String a = "2"; // the same
+//        String b = "2";
 
-        int res = extest();
+        assertTrue(a == b);
+        paramsPassingTest(a, b);
+
+
+
+        int res = exTest();
 
         Main main = new Main();
         main.run(args);
@@ -260,15 +284,6 @@ public class Main {
         main.qqq(i, s, iarr);
 
 
-//        HashMap<Integer, String> map = new HashMap<>();
-//        map.put(1, "qqq");
-//        map.put(4, null); // ok
-//        map.put(null, "rrrr"); // ok
-
-//        HashSet<Integer> set = new HashSet<>();
-//        set.add(1);
-//        set.add(4);
-//        set.add(null); // ok
 
         Callable callable = new Callable() {
             public int a = 1; // static  error
@@ -318,8 +333,8 @@ public class Main {
         /////////// ORRRRRRRUUUUUUUUUUUUUUU ORU
         AdditionalDevice1.NestedClass1 nc1 = ad1.new NestedClass1(); /////////// ORRRRRRRUUUUUUUUUUUUUUU ORU
 
-        class13 c13 = new class13();
-        c13. new NestedStaticClass22();
+        //class13 c13 = new class13();
+        //c13. new NestedStaticClass22();
 
 //        TreeSet<AdditionalDevice1> treeSet = new TreeSet<AdditionalDevice1>();
 //        treeSet.add(new AdditionalDevice1() {

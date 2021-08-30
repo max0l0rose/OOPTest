@@ -14,3 +14,4 @@ class class131 extends class13 { // static -- error here!
         //field1 = 6; // protected test. from another pack.
     }
 }
+
