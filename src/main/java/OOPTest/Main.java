@@ -65,90 +65,6 @@ public class Main {
     }
 
 
-    static int exTest() {
-        float c = 0;
-        try {
-            c = 0 / .0F;
-            c = 0 / 0;
-            c++;
-            c++;
-            c++;
-            c++;
-        }
-        catch (ArithmeticException e)
-        {
-            return 10; // 10 will be returned
-        }
-        catch (RuntimeException e)
-        {
-            c = 11;
-        }
-        catch (Exception e)
-        {
-            c = 12;
-        }
-        catch (Throwable e)
-        {
-            c = 13;
-        }
-        finally
-        {
-            //try {
-                throw new NullPointerException("qqq");
-            //}
-            //catch(Exception ex) {
-            //    return 100;
-            //}
-
-            //return; // !!!!!!!! Ловить не надо! )))))))))))) Все работает
-        }
-
-        //return a;
-    }
-
-
-
-//
-//    public class Parent {
-//        public void f() throws IOException, InterruptedException
-//        {
-//        }
-//    }
-//
-//    class Child extends Parent {
-//        @Override
-//        public void f() throws Exception // error
-//        {
-//        }
-//    }
-
-
-
-
-//    public static void f1() throws Exception
-//    {
-//        try {
-//            Throwable t = new Exception(); // и лететь будет Exception
-//            throw t; // но тут ошибка компиляции
-//        } catch (Exception e) {
-//            System.out.println("Перехвачено!");
-//        }
-//    }
-
-
-    public static String exTest2() {
-        try {
-            int c = 1 / 0;
-            return "SomeString";
-        }
-        catch(Exception ex) {
-            return "Catch message";
-        }
-        finally {
-            return "Finally message";
-        }
-    }
-
 
     class WrapInt{
         int value = 1;
@@ -168,20 +84,12 @@ public class Main {
     }
 
 
-    static void paramsPassingTest(Integer a, Integer b) {
+    static int paramsPassingTest(Integer a, Integer b) {
         //i.value++;
         Integer t = a;
         a = b;
         b = t;
-
-        try {
-            return;
-        } catch(Exception e) {
-            e.printStackTrace();
-        } finally {
-            int aa = 1;
-        }
-
+        return ++a;
     }
 
 
@@ -219,8 +127,6 @@ public class Main {
 
     void run(String[] args) {
 
-        String s = exTest2();
-
         //Integer a = 1;
 
         WrapInt theInt = new WrapInt() {{ value = 2; }};
@@ -229,7 +135,7 @@ public class Main {
 
         Integer theIntA = 2;
         Integer theIntB = 3;
-        paramsPassingTest(theIntA, theIntB);
+        int res = paramsPassingTest(theIntA, theIntB);
 
         //Integer[] arr = new Integer[] {1,2,3};
         int[] arr = new int[] {1,2,3};
@@ -268,12 +174,9 @@ public class Main {
 //        String a = "2"; // the same
 //        String b = "2";
 
-        assertTrue(a == b);
+        //assertTrue(a == b);
         paramsPassingTest(a, b);
 
-
-
-        int res = exTest();
 
         Main main = new Main();
         main.run(args);
