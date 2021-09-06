@@ -6,7 +6,7 @@ class class131 extends class13 { // static -- error here!
 
     class131() {
         field1 = 131;
-        class13.field1 = 3333;
+        class13.stField13 = 3333;
     }
 
     class131(int a) {

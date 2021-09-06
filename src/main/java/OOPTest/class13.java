@@ -3,24 +3,27 @@ package OOPTest;
 // test pack access
 
 public class class13 { // static -- error here!
-    public static int field1 = 1;
-    private int nonStatic13 = 1;
+    public static int stField13 = 1;
+    int nonStatic13 = 1;
 
     public class13() {
-        field1 = 2;
+        stField13 = 2;
 
         NestedStaticClass132.statFunc();
     }
 
     public class13(int a) {
-        field1 = a;
+        stField13 = a;
     }
 
     public static class NestedStaticClass132 {
-        //int nonStatic22 = 1;
+        int nonStatic132 = 1; // OK
+
         int getOuterField(){
-            //nonStatic = 2;
-            return field1; // !!!!!!!!
+            //nonStatic13 = 1; //ERROR!
+            nonStatic132 = 2; // OK
+            //nonStatic13 = 2; // ERROR
+            return stField13; // !!!!!!!! // OK
         }
 
         void nonStatFunc() { // ok!

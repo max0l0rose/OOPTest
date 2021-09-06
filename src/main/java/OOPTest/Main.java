@@ -47,7 +47,7 @@ public class Main {
             Nested_InMethod_C3() { // instance constructor
                 super.field1 = 444;
                 //super.super.field1 = 444;
-                class13.field1 = 666;
+                class13.stField13 = 666;
                 //super(1);
             }
 
