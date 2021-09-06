@@ -16,7 +16,7 @@ public class class13 { // static -- error here!
         stField13 = a;
     }
 
-    public static class NestedStaticClass132 {
+    static class NestedStaticClass132 { // protected, private - OK!
         int nonStatic132 = 1; // OK
 
         int getOuterField(){
