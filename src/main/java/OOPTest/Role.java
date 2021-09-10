@@ -31,6 +31,12 @@ class C //extends Role // impossible
 }
 
 
-enum E {
+enum E //extends Role // impossible
+{
     a, b
+}
+
+interface ITest // extends Role // ERROR
+{
+
 }

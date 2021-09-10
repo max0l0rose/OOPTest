@@ -163,10 +163,59 @@ public class Main {
     }
 
 
+    static class Person {
+        String firstName;
+        String lastName;
+
+        Person() {}
+
+        Person(String firstName, String lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+    }
+
+    static class Person2 extends Person {
+        String middleName;
+
+        //Person2() {}
+
+        Person2(String firstName, String lastName, String middleName) {
+            super(firstName, lastName);
+            this.middleName = middleName;
+        }
+
+        Person2(String firstName, String lastName) {
+            super(firstName, lastName);
+        }
+    }
+
+    static class RenegadePerson {
+        String qqq;
+        String www;
+
+        //RenegadePerson() {}
+
+        RenegadePerson(String qqq, String www) {
+            this.qqq = qqq;
+            this.www = www;
+        }
+    }
+
+
+    interface PersonFactory<P> { // extends Person
+        P create(String firstName, String lastName);
+    }
+
     // =============================================================================================
     // =============================================================================================
     // =============================================================================================
     public static void main(String[] args) {
+
+
+        PersonFactory<RenegadePerson> personFactory = RenegadePerson::new;
+        RenegadePerson person = personFactory.create("rPeter", "rParker");
+
 
         String a = new String("2"); // different
         String b = new String("2");
