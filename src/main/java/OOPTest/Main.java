@@ -4,6 +4,8 @@ import OOPTest.Interfaces.*;
 import io.vavr.control.Try;
 
 import java.util.concurrent.Callable;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 import static org.junit.Assert.assertTrue;
 
@@ -205,6 +207,10 @@ public class Main {
 
     interface PersonFactory<P> { // extends Person
         P create(String firstName, String lastName);
+
+        default String getName() {
+            return "Vasya";
+        }
     }
 
     // =============================================================================================
@@ -212,8 +218,27 @@ public class Main {
     // =============================================================================================
     public static void main(String[] args) {
 
+//        Function<String, Integer> toInteger = Integer::valueOf;
+//        Function<String, String> backToString = toInteger.andThen(String::valueOf);
+//
+//        int ii = toInteger.apply("123");
+//        String s = backToString.apply("123");
 
-        PersonFactory<RenegadePerson> personFactory = RenegadePerson::new;
+
+        Predicate<Integer> negative =
+                i -> i > 0;
+        Predicate<Integer> above10 =
+                i -> i < -10;
+        boolean res = negative.and(above10).negate().test(-5);
+
+        //PersonFactory<RenegadePerson> personFactory = RenegadePerson::new;
+        //PersonFactory<RenegadePerson> personFactory = (n, ln) -> new RenegadePerson(getName(), ln); // ERROR
+        PersonFactory<RenegadePerson> personFactory = new PersonFactory<RenegadePerson>() {
+            @Override
+            public RenegadePerson create(String firstName, String lastName) {
+                return new RenegadePerson(getName(), lastName);
+            }
+        };
         RenegadePerson person = personFactory.create("rPeter", "rParker");
 
 
@@ -230,10 +255,10 @@ public class Main {
         Main main = new Main();
         main.run(args);
 
-        String[] s = { "aaa" };
+        String[] s2 = { "aaa" };
         Integer i = 1;
         int[] iarr = { 1 };
-        main.qqq(i, s, iarr);
+        main.qqq(i, s2, iarr);
 
 
 
