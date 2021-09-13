@@ -1,16 +1,15 @@
 package OOPTest.Interfaces;
 
 public interface IMovable {
-    final static int a = 1; // final static !!
+    final static int interfaceStatA = 1; // _final_ static !!
 
-    default IEngine.IAdditionalDevice gas() {
+    default IEngine.IAdditionalDevice defMethGas() {
         System.out.println("IMovable::gas");
-        // a = 2; // error
-        //aaa();
-        IEngine.IAdditionalDevice i = null;
-        return i;
+        //a = 2; // error, final!
+        IEngine.IAdditionalDevice ad = null;
+        return ad;
     }
 
-    static void smmm() {
+    static void statMeth() {
     }
 }

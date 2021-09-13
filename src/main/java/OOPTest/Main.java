@@ -3,8 +3,8 @@ package OOPTest;
 import OOPTest.Interfaces.*;
 import io.vavr.control.Try;
 
+import java.util.TreeSet;
 import java.util.concurrent.Callable;
-import java.util.function.Function;
 import java.util.function.Predicate;
 
 import static org.junit.Assert.assertTrue;
@@ -213,6 +213,8 @@ public class Main {
         }
     }
 
+
+
     // =============================================================================================
     // =============================================================================================
     // =============================================================================================
@@ -298,48 +300,48 @@ public class Main {
         Abstract1.statm();
         Abstract2.statm();
 
-        int aa = Role.User.getParam();
-        String name = Role.User.name();
-        Role role = Role.valueOf("User1");
+//        int aa = Role.User.getParam();
+//        String name = Role.User.name();
+//        Role role = Role.valueOf("User1");
 
         AdditionalDevice1 ad1 = new AdditionalDevice1();
-        ad1.notStatic = 2;
+        ad1.notStaticA = 2;
 
-        /////////// ORRRRRRRUUUUUUUUUUUUUUU ORU
-        /////////// ORRRRRRRUUUUUUUUUUUUUUU ORU
         /////////// ORRRRRRRUUUUUUUUUUUUUUU ORU
         AdditionalDevice1.NestedClass1 nc1 = ad1.new NestedClass1(); /////////// ORRRRRRRUUUUUUUUUUUUUUU ORU
 
         //class13 c13 = new class13();
         //c13. new NestedStaticClass22();
 
-//        TreeSet<AdditionalDevice1> treeSet = new TreeSet<AdditionalDevice1>();
-//        treeSet.add(new AdditionalDevice1() {
-//            int t = 1; // static - error
-//            @Override
-//            public int compareTo(Object o) {
-//                return 0;
-//            }
-//        });
-//        //treeSet.add(new AdditionalDevice1());
-//       // treeSet.add(new AdditionalDevice1());
 
+        new AdditionalDevice1() {
+            //static int t = 1; // static - error
+
+            public int compareTo1(Object o) {
+                return 0;
+            }
+        };
+
+
+        ICar.interfaceStatMeth();
         FastCar fastCar = new FastCar();
-                                    // RocketAirBus fastCar = new AirBus(); -- incopat types error!!
-                                    // RocketAirBus fastCar = (RocketAirBus)new AirBus(); -- runtime: OOPTest.AirBus cannot be cast to OOPTest.RocketAirBus
-        ICar.sm();
-        fastCar.sm2(); //gas();
-        FastCar.sm2();
-        //((ICar)fastCar).sm();//  ))))))))))))
+        // RocketAirBus fastCar = new AirBus(); // incopati types ERROR!!
+        // RocketAirBus fastCar = (RocketAirBus)new AirBus(); // ERROR runtime: OOPTest.AirBus cannot be cast to OOPTest.RocketAirBus
 
-        fastCar.point.x = 2;
-        fastCar.point.x = 3;
-        int aaa = ((IMovable)fastCar).a;
-        //RocketAirBus rai = (RocketAirBus)fastCar;
+        //fastCar.interfaceStatMeth(); //Error!!!!!
+        fastCar.classStaticMeth(); //gas();
+        fastCar.defMethGas(); // OK !!!!!
+        //((IMovable)fastCar).smmm();//  ERROR ))))))))))))
 
-        fastCar.qqq();
+        fastCar.staticPoint.x = 3;
+        int aaa = fastCar.interfaceStatA; // OK - field!
+        int a3 = IMovable.interfaceStatA;
+        //int aaa = fastCar.smmm(); // ERROR - stat method!
 
-        Object o;
+
+        //IAircraft ac = (IAircraft)fastCar; // CAST ERROR!!
+
+        //Object o;
         //RocketAirBus.sqqq();
 
         System.out.println("----- End ------");

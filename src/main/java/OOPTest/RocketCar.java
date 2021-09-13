@@ -2,14 +2,18 @@ package OOPTest;
 
 // ====================================================
 class RocketCar extends FastCar {
-    int qqq = 2;
+
+//    class qqq {
+//        static int a;  // static ERROR!
+//    }
 
     static void sqqq() {
-        FastCar.sm2();
+        classStaticMeth();
     }
 
-    void qqq() {
-        super.qqq();
-        qqq = 3;
+    void func() {
+        super.func();
+
+        classStaticMeth();
     }
 }

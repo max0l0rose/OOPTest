@@ -16,12 +16,12 @@ class FastCar implements ICar {
     }
 
 
-    static void sm2() {
-        //smmm();
+    static void classStaticMeth() {
+        //statMeth(); // ERROR!
     }
 
-    void qqq() {
-        //smmm();
+    void func() {
+        //interfaceStatMeth(); // ERROR!
     }
 
 }
