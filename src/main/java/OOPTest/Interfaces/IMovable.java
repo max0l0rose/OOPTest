@@ -10,6 +10,6 @@ public interface IMovable {
         return ad;
     }
 
-    static void statMeth() {
+    static void interfaceStatMeth() {
     }
 }

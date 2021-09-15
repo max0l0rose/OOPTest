@@ -324,6 +324,7 @@ public class Main {
 
 
         ICar.interfaceStatMeth();
+        IMovable.interfaceStatMeth();
         FastCar fastCar = new FastCar();
         // RocketAirBus fastCar = new AirBus(); // incopati types ERROR!!
         // RocketAirBus fastCar = (RocketAirBus)new AirBus(); // ERROR runtime: OOPTest.AirBus cannot be cast to OOPTest.RocketAirBus

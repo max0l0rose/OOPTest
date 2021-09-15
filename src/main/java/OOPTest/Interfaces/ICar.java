@@ -2,8 +2,21 @@ package OOPTest.Interfaces;
 
 public interface ICar extends IMovable, IEngine {
 
+    static void interfaceStatMeth()
+    {
+        //super.interfaceStatMeth(); // super error
+
+        IMovable.interfaceStatMeth(); // OK
+
+        String methodName = new Throwable()
+                .getStackTrace()[0]
+                .getMethodName();
+        System.out.println(methodName);
+    }
+
+
     default IAdditionalDevice defMethGas() {
-        IMovable.statMeth();
+        IMovable.interfaceStatMeth();
         IEngine.smmm();
         //System.out.println("ICar::gas");
         //aaa();
@@ -11,14 +24,6 @@ public interface ICar extends IMovable, IEngine {
         return ad;
     }
 
+
     void brake();
-
-    static void interfaceStatMeth()
-    {
-        String methodName = new Throwable()
-                .getStackTrace()[0]
-                .getMethodName();
-        System.out.println(methodName);
-    }
-
 }
