@@ -9,6 +9,8 @@ import java.util.function.Predicate;
 
 import static org.junit.Assert.assertTrue;
 
+import static OOPTest.MyHelpers.*;
+
 
 // ====================================================
 public class Main {
@@ -211,14 +213,22 @@ public class Main {
         default String getName() {
             return "Vasya";
         }
+
+        default String statm() {
+            return "Vasya";
+        }
     }
 
 
+    static void testHelpers(Predicate<Integer> predicate) {
+    }
 
     // =============================================================================================
     // =============================================================================================
     // =============================================================================================
     public static void main(String[] args) {
+
+        testHelpers(helper1());
 
 //        Function<String, Integer> toInteger = Integer::valueOf;
 //        Function<String, String> backToString = toInteger.andThen(String::valueOf);
@@ -238,7 +248,8 @@ public class Main {
         PersonFactory<RenegadePerson> personFactory = new PersonFactory<RenegadePerson>() {
             @Override
             public RenegadePerson create(String firstName, String lastName) {
-                return new RenegadePerson(getName(), lastName);
+                return new RenegadePerson(getName(), lastName); // default OK!
+//                return new RenegadePerson(statm(), lastName); // static method OK!
             }
         };
         RenegadePerson person = personFactory.create("rPeter", "rParker");
