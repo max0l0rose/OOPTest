@@ -2,17 +2,23 @@ package OOPTest;
 
 // test pack access
 
-public class class13 { // static -- error here!
+public class Class13 { // static -- error here!
     public static int stField13 = 1;
+    static int stField13_2 = 1;
     int nonStatic13 = 1;
+    final static int finStatic13;
 
-    public class13() {
+    static {
+        finStatic13 = 1;
+    }
+
+    public Class13() {
         stField13 = 2;
 
         NestedStaticClass132.statFunc();
     }
 
-    public class13(int a) {
+    public Class13(int a) {
         stField13 = a;
     }
 

@@ -1,13 +1,10 @@
 package OOPTest;
 
 import OOPTest.Interfaces.*;
-import io.vavr.control.Try;
+//import io.vavr.control.Try;
 
-import java.util.TreeSet;
 import java.util.concurrent.Callable;
 import java.util.function.Predicate;
-
-import static org.junit.Assert.assertTrue;
 
 import static OOPTest.MyHelpers.*;
 
@@ -45,13 +42,13 @@ public class Main {
             }
         }
 
-        class Nested_InMethod_C3 extends class131 {
+        class Nested_InMethod_C3 extends Class131 {
             private int fff = 1; //static - error
             private int field1 = 2;
             Nested_InMethod_C3() { // instance constructor
                 super.field1 = 444;
                 //super.super.field1 = 444;
-                class13.stField13 = 666;
+                Class13.stField13 = 666;
                 //super(1);
             }
 
@@ -149,21 +146,21 @@ public class Main {
 
 
     static void vavr() {
-
-        Try<Integer> result = Try.of(
-                () -> 1 / 0
-        );
-
-        //assertTrue(result.isFailure());
-
-        int errorSentinel = result.recover(a -> 1).getOrElse(-666);
-
-
-        io.vavr.collection.List list = io.vavr.collection.List.of(1, "2", 0.7);
-
-//        List<String> wordList = Arrays.asList("abracadabra");
-//        List<String> list = Collections.unmodifiableList(wordList);
-//        list.add("boom");
+//
+//        Try<Integer> result = Try.of(
+//                () -> 1 / 0
+//        );
+//
+//        //assertTrue(result.isFailure());
+//
+//        int errorSentinel = result.recover(a -> 1).getOrElse(-666);
+//
+//
+//        io.vavr.collection.List list = io.vavr.collection.List.of(1, "2", 0.7);
+//
+////        List<String> wordList = Arrays.asList("abracadabra");
+////        List<String> list = Collections.unmodifiableList(wordList);
+////        list.add("boom");
     }
 
 
@@ -227,6 +224,8 @@ public class Main {
     // =============================================================================================
     // =============================================================================================
     public static void main(String[] args) {
+
+        Class131 class13 = new Class131();
 
         testHelpers(helper1());
 

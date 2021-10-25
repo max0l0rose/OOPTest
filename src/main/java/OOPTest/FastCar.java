@@ -3,7 +3,7 @@ package OOPTest;
 import OOPTest.Interfaces.ICar;
 
 // ====================================================
-class FastCar implements ICar {
+public class FastCar implements ICar {
 
     int qqq = 1; // package private. Default.
 

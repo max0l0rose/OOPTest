@@ -1,9 +1,7 @@
 package OOPTest;
 
 import OOPTest.Interfaces.ICar;
-import lombok.Getter;
 
-@Getter
 public enum Role // extends E // error. impossible extend Enum
                 // extends C // error. impossible extend Class
                 implements ICar
