@@ -8,6 +8,7 @@ class Class131 extends Class13 { // static -- error here!
     }
 
     protected int field1 = 1;
+
     static int staticField131 = 1;
     public final static int finStatic131;
 

@@ -12,6 +12,25 @@ import static OOPTest.MyHelpers.*;
 // ====================================================
 public class Main {
 
+    class A {
+        int val = 1;
+
+        void f() {
+        }
+    }
+
+    void func(Main.A a) {
+
+    }
+
+    void func(Class13.NestedStaticClass13 nestedStaticClass13) {
+
+    }
+
+    void func(Class13.NestedClass13 nestedClass13) {
+
+    }
+
     //Collection
     //LinkedList
     //List
@@ -225,7 +244,9 @@ public class Main {
     // =============================================================================================
     public static void main(String[] args) {
 
-        Class131 class13 = new Class131();
+        Class131 class131 = new Class132();
+        Class13.NestedStaticClass13 nestedStaticClass13A = new Class13.NestedStaticClass13A();
+        Class13.NestedClass13 nestedClass13 = class131.new NestedClass13();
 
         testHelpers(helper1());
 
