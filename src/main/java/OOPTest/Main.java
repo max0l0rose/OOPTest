@@ -23,11 +23,7 @@ public class Main {
 
     }
 
-    void func(Class13.NestedStaticClass13 nestedStaticClass13) {
-
-    }
-
-    void func(Class13.NestedClass13 nestedClass13) {
+    void func(Class13.NestedStaticClass132 nestedStaticClass13) {
 
     }
 
@@ -245,8 +241,8 @@ public class Main {
     public static void main(String[] args) {
 
         Class131 class131 = new Class132();
-        Class13.NestedStaticClass13 nestedStaticClass13A = new Class13.NestedStaticClass13A();
-        Class13.NestedClass13 nestedClass13 = class131.new NestedClass13();
+//        Class13.NestedStaticClass132 nestedStaticClass13A = new Class13.NestedStaticClass13A();
+//        Class13.NestedClass13 nestedClass13 = class131.new NestedClass13();
 
         testHelpers(helper1());
 
@@ -365,7 +361,7 @@ public class Main {
         fastCar.defMethGas(); // OK !!!!!
         //((IMovable)fastCar).smmm();//  ERROR ))))))))))))
 
-        fastCar.staticPoint.x = 3;
+        //fastCar.staticPoint.x = 3;
         int aaa = fastCar.interfaceStatA; // OK - field!
         int a3 = IMovable.interfaceStatA;
         //int aaa = fastCar.smmm(); // ERROR - stat method!

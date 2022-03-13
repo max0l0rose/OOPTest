@@ -1,6 +1,6 @@
 package OOPTest.Interfaces;
 
-import java.awt.*;
+//import java.awt.*;
 
 public interface IEngine {
 
@@ -9,7 +9,7 @@ public interface IEngine {
     }
 
     final static int staticA = 1; // final static !!
-    final static Point staticPoint = new Point(1,2);
+    //final static Point staticPoint = new Point(1,2);
 
     default IAdditionalDevice gas() {
         System.out.println("IEngine::gas");

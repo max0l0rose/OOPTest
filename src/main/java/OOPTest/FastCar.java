@@ -24,4 +24,24 @@ public class FastCar implements ICar {
         //interfaceStatMeth(); // ERROR!
     }
 
+
+
+    public int binarySearch(int[] array, int X) throws Exception {
+        int center, left = 0;
+        int right = array.length;
+
+        do {
+            center = (right-left) / 2;
+            if (array[center] < X)
+                right = center;
+            else
+                left = center;
+        } while(array[center] != X
+                        || left >= right);
+
+        if (left == right)
+            throw new Exception();
+
+        return center;
+    }
 }
